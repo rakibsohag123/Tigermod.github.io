@@ -9,7 +9,7 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
+concurrency:  
   group: "deploy"
   cancel-in-progress: true
   #ci-${{ github.ref }}
@@ -28,7 +28,7 @@ jobs:
       with:
         node-version: 16.x
     - name: Install dependencies and build site
-      run: npm i -g pnpm@v6 && pnpm up && pnpm i --shamefully-hoist --force && NODE_ENV="production" webpack --bail
+      run: npm i -g pnpm@v6 && pnpm up && pnpm i --shamefully-hoist --force && NODE_ENV="production" NPX webpack --bail
     - name: Upload artifact 
       uses: actions/upload-pages-artifact@v3
       with:
